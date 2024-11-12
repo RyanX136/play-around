@@ -11,7 +11,7 @@ import transform.Warble;
 
 public class ImageWarp {
     public static void main(String[] args) {
-        PixelArray input = new PixelArray(new Image("images/coo.jpeg"));
+        PixelArray input = new PixelArray(new Image("images/nessie.jpeg"));
 
         int outSize = 1024;
         PixelArray output = new PixelArray(outSize, outSize, input.getChannelCount());

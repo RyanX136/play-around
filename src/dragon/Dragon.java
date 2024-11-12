@@ -25,8 +25,8 @@ public class Dragon {
     private void draw(Point p, double angle, double step, int levels, float hueStep) {
         if (levels > 0) {
             // Each recursive level is made out of two smaller copies of the dragon
-            double smallerStep = step * Math.sqrt(0.5);
-            draw(p, angle + 45, smallerStep, levels-1, hueStep / 2);
+            double smallerStep = step * Math.sqrt(.3);
+            draw(p, angle + 75, smallerStep, levels-1, hueStep / 2);
             draw(endpoint(p, angle, step), angle + 135, smallerStep, levels-1, hueStep / 2);
         } else {
             // At the lowest recursive level, we build our dragon out of straight lines

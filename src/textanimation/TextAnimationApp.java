@@ -10,6 +10,7 @@ import java.util.Scanner;
 import java.util.stream.Stream;
 
 import edu.macalester.graphics.CanvasWindow;
+import edu.macalester.graphics.FontStyle;
 import edu.macalester.graphics.GraphicsObject;
 import edu.macalester.graphics.GraphicsText;
 
@@ -92,12 +93,13 @@ public class TextAnimationApp {
     private void showWord(String word) {
         GraphicsText wordGraphics = new GraphicsText(word.trim());
         wordGraphics.setFontSize(FONT_SIZE);
+        wordGraphics.setFontStyle(FontStyle.BOLD_ITALIC);
         wordGraphics.setFillColor(textColor);
         wordGraphics.setY(canvas.getHeight());
         wordGraphics.setRotation(Math.pow(Math.random(), 10) * 1000);
         FlyUpAnimation animation = new FlyUpAnimation(
             wordGraphics,
-            Math.min(0.5, 0.004 * Math.pow(word.length(), 1.5)),  // longer words float up more slowly
+            Math.min(0.05, 0.004 * Math.pow(word.length(), 1.5)),  // longer words float up more slowly
             5);
         canvas.add(animation);
         wordAnimations.add(animation);

@@ -24,7 +24,7 @@ public class Flame {
     public static void main(String[] args) {
         int size = 640;
         CanvasWindow canvas = new CanvasWindow("hi", size, size);
-        Flame flame = new Flame(size, 0.5);
+        Flame flame = new Flame(size, 1);
 
         while(true) {
             Image image = flame.render();
@@ -46,7 +46,7 @@ public class Flame {
             // - Add a Rotate transform
             // - Try different subsets of transforms
             // - Try two of same transform w/different params
-            new Warble(2, 3),
+            new Warble(200000, 3000000),
             new Squinch(0.01, 0.3)
         );
     }
@@ -67,9 +67,9 @@ public class Flame {
         float[] pixels = new float[histogram.length * 3];
         for (int i = 0; i < histogram.length; i++) {
             double z = Math.log(histogram[i] + 1) / 10;
-            pixels[i * 3 + 0] = colorCurve(z, 1, 4, 0.9);
-            pixels[i * 3 + 1] = colorCurve(z, 2, 3, 1.5);
-            pixels[i * 3 + 2] = colorCurve(z, 6, 4, 2);
+            pixels[i * 3 + 0] = colorCurve(z, 10, 40, 0.9);
+            pixels[i * 3 + 1] = colorCurve(z, 20, 300, 1.5);
+            pixels[i * 3 + 2] = colorCurve(z, 60, 4, 2);
         }
         return new Image(size, size, pixels, PixelFormat.RGB);
     }
@@ -94,6 +94,6 @@ public class Flame {
         if (xi < 0 || xi >= size || yi < 0 || yi >= size) {
             return;
         }
-        histogram[xi + yi * size] += 10;
+        histogram[xi + yi * size] += 20;
     }
 }
